@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dark">
+
+  <audio id="intro-sound">
+    <source src="So Wassup_.mp3" type="audio/mp3">
+  </audio>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
+  <div id="click-to-enter" class="glow-text">
+    Clique pour entrer
+  </div>
+
+  <div class="content hidden">
+    <img src="avatar.jpg" alt="Mon avatar" class="avatar" />
+    <h1>Assa</h1>
+    <p>Bienvenue sur ma page perso !</p>
+
+    <div class="links">
+      <a href="https://steamcommunity.com/profiles/76561199258284878/" target="_blank" title="Steam">
+        <i class="fab fa-steam fa-2x"></i>
+      </a>
+      <a href=" https://discord.gg/mJrUgYxqz4" target="_blank" title="Discord">
+        <i class="fab fa-discord fa-2x"></i>
+      </a>
+      <a href="https://github.com/tonid" target="_blank" title="GitHub">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+      <a href="https://fr.namemc.com/profile/Assa_Off.1" target="_blank" title="Minecraft">
+        <i class="fab fa-java fa-2x"></i>
+      </a>
+    </div>
+  </div>
+
+  <div id="flash" class="hidden"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("click-to-enter");
+      const content = document.querySelector(".content");
+      const audio = document.getElementById("intro-sound");
+      const body = document.body;
+      const flash = document.getElementById("flash");
+
+      const enterSite = () => {
+        overlay.style.display = "none";
+        flash.classList.remove("hidden");
+        flash.classList.add("flash-anim");
+
+        setTimeout(() => {
+          flash.classList.add("fade-out");
+          body.classList.remove("dark");
+          content.classList.remove("hidden");
+        }, 200);
+
+        audio.play().catch(err => console.log("Erreur audio:", err));
+        document.removeEventListener("click", enterSite);
+      };
+
+      document.addEventListener("click", enterSite);
+    });
+  </script>
+</body>
+</html>
