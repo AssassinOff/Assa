@@ -90,6 +90,18 @@ body.dark::before {
   transform: scale(1.2);
 }
 
+#visitor-count {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+#visitor-count i {
+  margin-right: 4px; /* Pour espacer l'icône du compteur */
+  color: white;
+}
 
 /* Flash animation style */
 #flash {
