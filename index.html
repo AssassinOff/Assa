@@ -30,7 +30,7 @@
     <p>Hello i'm Assa, yk The Disgraced One </p>
 
     <!-- Compteur de visites avec l'icône d'œil en haut à gauche -->
-    <p id="visitor-count"><i class="fas fa-eye"></i> <span id="counter">0</span></p>
+    <p id="visitor-count"><i class="fas fa-eye"></i> <span id="counter">...</span></p>
 
 
     <div class="links">
@@ -65,7 +65,7 @@
     document.getElementById('counter').textContent = data.views;
   })
   .catch(err => console.error('Erreur compteur:', err));
-  
+
       const enterSite = () => {
         overlay.style.display = "none";
         flash.classList.remove("hidden");
