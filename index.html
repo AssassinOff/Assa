@@ -59,13 +59,13 @@
       const body = document.body;
       const flash = document.getElementById("flash");
 
-      fetch('/api/visits')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('counter').textContent = data.views;
-    })
-    .catch(err => console.error('Erreur compteur:', err));
-
+      fetch('/api/view')  // Remplace "visits" par "view"
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('counter').textContent = data.views;
+  })
+  .catch(err => console.error('Erreur compteur:', err));
+  
       const enterSite = () => {
         overlay.style.display = "none";
         flash.classList.remove("hidden");

@@ -1,3 +1,4 @@
+// pages/api/view.js
 import { Redis } from '@upstash/redis'
 
 const redis = new Redis({
@@ -8,7 +9,6 @@ const redis = new Redis({
 export default async function handler(req, res) {
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 
-  // Check if this IP has already visited (optionnel, basique)
   const alreadyVisited = await redis.get(ip);
 
   if (!alreadyVisited) {
